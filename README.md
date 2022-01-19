@@ -8,6 +8,10 @@ The algorithm presented in the paper has two versions called 'hard' and 'soft'. 
 
 # Brief description
 
+This is a non-parametric probability density estimation approach. It covers the data space with fixed radii hyper-balls with densities represented by full covariance Gaussians
+
 # How to use
+
+There are two functions of interest: `fpw` and `cv_fpw`.
 
 # Example
