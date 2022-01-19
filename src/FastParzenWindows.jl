@@ -15,6 +15,6 @@ module FastParzenWindows
     include("cvfpw.jl")
 
 
-    export fpw, spiraldata, getmixturemodel, cv_fpw
+    export fpw, spiraldata, cv_fpw
 
 end
