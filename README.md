@@ -9,3 +9,5 @@ The algorithm presented in the paper has two versions called 'hard' and 'soft'. 
 # Brief description
 
 # How to use
+
+# Example
