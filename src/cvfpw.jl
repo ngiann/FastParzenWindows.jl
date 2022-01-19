@@ -32,13 +32,13 @@ function cv_fpw(X, r_range, seed=1)
       for repeat=1:randRepeats
 
         # get Parzen window
-        Q, mu, C = fpw(Xtrain, r)
+        mixturemodel = fpw(Xtrain, r)
 
         # get log-likelihood on test set
-        logpdfMix = instantiatelikelihood(Q, mu, C)[2]
+        logpdfmix(x) = logpdf(mixturemodel, x)
 
         for nn=1:length(testInd)
-          @inbounds score[r_index, i] += logpdfMix(@view Xtest[nn,:]) / randRepeats
+          @inbounds score[r_index, i] += logpdfmix(@view Xtest[nn,:]) / randRepeats
         end
 
       end

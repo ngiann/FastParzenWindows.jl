@@ -14,7 +14,6 @@ module FastParzenWindows
 
     include("cvfpw.jl")
 
-    include("instantiatelikelihood.jl")
 
     export fpw, spiraldata, getmixturemodel, cv_fpw
 

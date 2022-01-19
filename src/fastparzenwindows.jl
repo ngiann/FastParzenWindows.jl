@@ -10,6 +10,6 @@ function fastparzenwindows(X, r)
 
   Q, mu, C = softparzen(X, centres_ind, r)
 
-  return Q, mu, C
+  getmixturemodel(Q, mu, C)
 
 end
