@@ -14,4 +14,7 @@ This is a technique for estimating a probability density from an observed set of
 
 There are two functions of interest: `fpw` and `cv_fpw`.
 
+- `fpw` takes two arguments, a matrix of data items of dimensions N×D and a scalar which expresses the radius ...
+
+
 # Example
