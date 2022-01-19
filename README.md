@@ -8,7 +8,7 @@ The algorithm presented in the paper has two versions called 'hard' and 'soft'. 
 
 # Brief description
 
-This is a non-parametric probability density estimation approach. It covers the data space with fixed radii hyper-balls with densities represented by full covariance Gaussians
+This is a technique for estimating a probability density from an observed set of data points. The data space is partitioned and each partition is modelled with a Gaussian density. The method is non-parametric in the sense that it automatically decides on the number of Gaussian densities it needs.
 
 # How to use
 
