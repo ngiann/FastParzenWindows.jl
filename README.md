@@ -12,7 +12,7 @@ This is a technique for estimating a probability density from an observed set of
 
 # How to use
 
-In the present moment this package is not registered. It will be registered one more thorough tests have been carried out.
+Install in package mode with `]add FastParzenWindows`.
 
 There are two functions of interest: `fpw` and `cv_fpw`.
 
