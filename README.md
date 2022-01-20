@@ -29,4 +29,28 @@ using PyPlot # must be independently installed. Of course any other plotting pac
 plot(X[:,1], X[:,2], "o")
 ```
 
+We want to find out which `r` works well for this dataset:
+```
+# define range of 100 candidate radii
+r_range = LinRange(0.01, 2.0, 100)
 
+# perform cross-validation
+cvresults = cv_fpw(X, r_range)
+
+# which is the best r?
+using Statistics
+r_perf = mean(cvresults, dims=2)
+best_index = argmax(r_perf)
+
+r_best = r_range[best_index]
+```
+
+Estimate final model:
+```
+mix = fpw(X, r_best)
+
+# generate observations and plot them
+x = rand(mix, 1000)'
+plot(x[:,1], x[:,2], "o")
+
+```
