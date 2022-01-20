@@ -23,9 +23,12 @@ There are two functions of interest: `fpw` and `cv_fpw`.
 
 We use a dataset taken from the paper. We generate 300 data points using:
 ```
+using FastParzenWindows
+using PyPlot # must be independently installed
+using Statistics
+
 X = spiraldata(300)
 
-using PyPlot # must be independently installed. Of course any other plotting package can be used instead.
 plot(X[:,1], X[:,2], "bo", label="dataset")
 ```
 
@@ -38,7 +41,6 @@ r_range = LinRange(0.01, 2.0, 100)
 cvresults = cv_fpw(X, r_range)
 
 # which is the best r?
-using Statistics
 r_perf = mean(cvresults, dims=2)
 best_index = argmax(r_perf)
 
