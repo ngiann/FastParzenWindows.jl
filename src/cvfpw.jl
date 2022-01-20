@@ -1,11 +1,10 @@
 ######################################################
-function cv_fpw(X, r_range, seed=1)
+function cv_fpw(X, r_range; numFolds = 10, seed=1)
 ######################################################
 
   Random.seed!(seed)
 
   randRepeats =  7
-  numFolds    = 10
 
   N = size(X, 1)
   D = size(X, 2)
