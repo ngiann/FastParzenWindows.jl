@@ -21,4 +21,11 @@ There are two functions of interest: `fpw` and `cv_fpw`.
 
 # Example
 
-Below is a dataset taken from the paper.
+We use a dataset taken from the paper. We generate 300 data points using:
+```
+X = spiraldata(300)
+
+using PyPlot # must be independently installed. Of course any other plotting package can be used instead.
+```
+
+
