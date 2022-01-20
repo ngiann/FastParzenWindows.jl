@@ -38,9 +38,9 @@ function cv_fpw(X, r_range; numFolds = 10, seed=1)
 
   score = zeros(length(r_range), numFolds)
 
-  for (r_index, r) in enumerate(r_range)
+  progressbar = Progress(length(r_range))
 
-    @printf("=> r = %f ",r)
+  for (r_index, r) in enumerate(r_range)
 
     for i = 1:numFolds
 
@@ -66,10 +66,10 @@ function cv_fpw(X, r_range; numFolds = 10, seed=1)
 
       end
 
-      @printf(".")
-
     end
-    @printf("\n")
+
+    ProgressMeter.next!(progressbar; showvalues = [(:r,r)])
+
   end
 
 
