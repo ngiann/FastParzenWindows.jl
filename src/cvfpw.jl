@@ -5,6 +5,7 @@ Performs cross validation for the radius parameter.
 Candidate values for the radius parameter are specified in `r_range`.
 Default number of folds is 10.
 Seed controls the generation of the folds.
+Returns the a matrix of dimensions (number of radii candidates)×(number of folds) of log-likelihoods evaluated on left out folds.
 
 # Example
 ```julia-repl
