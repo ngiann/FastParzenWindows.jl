@@ -1,3 +1,8 @@
+"""
+    X = spiraldata(N)
+
+Generates data points on a 2D spiral returned as a N×2 matrix X.
+"""
 function spiraldata(N)
 
     t = rand(Uniform(3, 15), N)
