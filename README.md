@@ -15,7 +15,7 @@ This is a technique for estimating a probability density from an observed set of
 There are two functions of interest: `fpw` and `cv_fpw`.
 
 - `fpw` takes two arguments, a N×D data matrix `X` and a scalar `r` which expresses the radius of the hyper-discs in which the data space is partitioned. The output is an object of the type `Distributions.MixtureModel`.
-- `cv_fpw` takes two arguments, a N×D data matrix`X` and a range of scalars for the radii of the hyper-discs. For each `r` in the range of scalars, 
+- `cv_fpw` takes two arguments, a N×D data matrix`X` and a range of candidate radii of the hyper-discs. For each candidate `r` in the range, it estimates on a number of folds a fast parzen window density (by calling `fpw`) 
 
 
 
