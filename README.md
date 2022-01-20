@@ -26,7 +26,7 @@ We use a dataset taken from the paper. We generate 300 data points using:
 X = spiraldata(300)
 
 using PyPlot # must be independently installed. Of course any other plotting package can be used instead.
-plot(X[:,1], X[:,2], "o")
+plot(X[:,1], X[:,2], "bo", label="dataset")
 ```
 
 We want to find out which `r` works well for this dataset:
@@ -51,7 +51,8 @@ mix = fpw(X, r_best)
 
 # generate observations and plot them
 x = rand(mix, 1000)'
-plot(x[:,1], x[:,2], "o")
+plot(x[:,1], x[:,2], "r.", label="generated")
+legend()
 
 ```
 
