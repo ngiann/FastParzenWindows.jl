@@ -55,4 +55,4 @@ plot(x[:,1], x[:,2], "o")
 
 ```
 
-![Spiral example](spiraldata.png)
+![Spiral example](spiral.png)
