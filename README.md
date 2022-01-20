@@ -12,6 +12,8 @@ This is a technique for estimating a probability density from an observed set of
 
 # How to use
 
+In the present moment this package is not registered. It will be registered one more thorough tests have been carried out.
+
 There are two functions of interest: `fpw` and `cv_fpw`.
 
 - `fpw` takes two arguments, a N×D data matrix `X` and a scalar `r` which expresses the radius of the hyper-discs in which the data space is partitioned. The output is an object of the type `Distributions.MixtureModel`.
