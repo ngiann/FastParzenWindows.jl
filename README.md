@@ -8,13 +8,17 @@ The algorithm presented in the paper has two versions called 'hard' and 'soft'. 
 
 # Brief description
 
-This is a technique for estimating a probability density from an observed set of data points. The data space is partitioned and each partition is modelled with a Gaussian density. The method is non-parametric in the sense that it automatically decides on the number of Gaussian densities it needs.
+This is a technique for estimating a probability density from an observed set of data points. The data space is partitioned in hyper-discs of fixed radii `r` and each partition is modelled with a Gaussian density. The method is non-parametric in the sense that it automatically decides on the number of Gaussian densities it needs. The final model is a mixture of Gaussians with each Gaussian fitted locally to a partition.
 
 # How to use
 
 There are two functions of interest: `fpw` and `cv_fpw`.
 
-- `fpw` takes two arguments, a matrix of data items of dimensions N×D and a scalar which expresses the radius ...
+- `fpw` takes two arguments, a N×D data matrix `X` and a scalar `r` which expresses the radius of the hyper-discs in which the data space is partitioned. The output is an object of the type `Distributions.MixtureModel`.
+- `cv_fpw` takes two arguments, a N×D data matrix `X` and a range of candidate radii of the hyper-discs. It performs cross-validation for each candidate `r` and returns a matrix of out-of-sample log-likelihoods of dimensions (number of `r` candidates)×(number of folds).
+
 
 
 # Example
+
+Below is a dataset taken from the paper.
