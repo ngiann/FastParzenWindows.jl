@@ -26,6 +26,7 @@ We use a dataset taken from the paper. We generate 300 data points using:
 X = spiraldata(300)
 
 using PyPlot # must be independently installed. Of course any other plotting package can be used instead.
+plot(X[:,1], X[:,2], "o")
 ```
 
 
