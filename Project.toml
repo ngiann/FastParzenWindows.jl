@@ -1,7 +1,7 @@
 name = "FastParzenWindows"
 uuid = "d2256c36-f6cb-4f2b-bb45-9577641c7b75"
 authors = ["ngiann <ngiann@gmail.com> and contributors"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
@@ -16,6 +16,7 @@ StatsFuns = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
 [compat]
 Distributions = "0.25"
 MLBase = "0.9"
+ProgressMeter = "1.7"
 StatsFuns = "0.9"
 julia = "1"
 
