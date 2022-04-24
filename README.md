@@ -8,9 +8,11 @@ The algorithm presented in the paper has two versions called 'hard' and 'soft'. 
 
 # Brief description
 
-This is a technique for estimating a probability density from an observed set of data points. The data space is partitioned in hyper-discs of fixed radii `r` and each partition is modelled with a Gaussian density. The method is non-parametric in the sense that it automatically decides on the number of Gaussian densities it needs. The final model is a mixture of Gaussians with each Gaussian fitted locally to a partition.
+This is a technique for estimating a probability density from an observed set of data points. The data space is partitioned in hyper-discs of fixed radii `r` and each partition is modelled with a Gaussian density.  The final model is a mixture of Gaussians with each Gaussian fitted locally to a partition.
 
 # How to use
+
+Install in package mode with `]add FastParzenWindows`.
 
 There are two functions of interest: `fpw` and `cv_fpw`.
 
