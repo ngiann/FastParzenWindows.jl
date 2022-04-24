@@ -23,12 +23,12 @@ julia> plot(x[:,1], x[:,2], ".r", label="generated", alpha=0.7)
 julia> legend()
 ```
 """
-function cv_fpw(X, r_range; numFolds = 10, seed=1, gamma = 1e-6)
+function cv_fpw(X, r_range; numFolds = 10, seed=1, gamma = 1e-6, randrepeats = 7)
 
 
   Random.seed!(seed)
 
-  randRepeats =  7
+
 
   N = size(X, 1)
   D = size(X, 2)
@@ -52,7 +52,7 @@ function cv_fpw(X, r_range; numFolds = 10, seed=1, gamma = 1e-6)
       testInd = setdiff(collect(1:N), trainInd)
       Xtest   = @view X[testInd,:]
 
-      for repeat=1:randRepeats
+      for repeat=1:randrepeats
 
         # get Parzen window
         mixturemodel = fpw(Xtrain, r)
@@ -61,7 +61,7 @@ function cv_fpw(X, r_range; numFolds = 10, seed=1, gamma = 1e-6)
         logpdfmix(x) = logpdf(mixturemodel, x)
 
         for nn=1:length(testInd)
-          @inbounds score[r_index, i] += logpdfmix(@view Xtest[nn,:]) / randRepeats
+          @inbounds score[r_index, i] += logpdfmix(@view Xtest[nn,:]) / randrepeats
         end
 
       end
