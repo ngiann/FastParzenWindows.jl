@@ -23,7 +23,7 @@ julia> plot(x[:,1], x[:,2], ".r", label="generated", alpha=0.7)
 julia> legend()
 ```
 """
-function cv_fpw(X, r_range; numFolds = 10, seed=1)
+function cv_fpw(X, r_range; numFolds = 10, seed=1, gamma = 1e-6)
 
 
   Random.seed!(seed)

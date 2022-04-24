@@ -1,5 +1,5 @@
 ##############################################################
-function softparzen(X, S_centre, r)
+function softparzen(X, S_centre, r, γ = 1e-6)
 ##############################################################
 
   N = size(X, 1)
@@ -56,7 +56,7 @@ function softparzen(X, S_centre, r)
       end
     end
 
-    C[mm] = (C[mm] + C[mm]')*0.5 + 1e-6*I
+    C[mm] = (C[mm] + C[mm]')*0.5 + γ*I
   end
 
   return Q, mu, C

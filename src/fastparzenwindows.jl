@@ -13,13 +13,13 @@ julia> plot(x[:,1], x[:,2], ".r", label="generated", alpha=0.7)
 julia> legend()
 ```
 """
-fpw(X, r) = fastparzenwindows(X, r)
+fpw(X, r, gamma = 1e-6) = fastparzenwindows(X, r, gamma)
 
-function fastparzenwindows(X, r)
+function fastparzenwindows(X, r, gamma=1e-6)
 
   centres_ind = partition(X, r)
 
-  Q, mu, C = softparzen(X, centres_ind, r)
+  Q, mu, C = softparzen(X, centres_ind, r, gamma)
 
   getmixturemodel(Q, mu, C)
 
