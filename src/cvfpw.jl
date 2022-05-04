@@ -23,17 +23,17 @@ julia> plot(x[:,1], x[:,2], ".r", label="generated", alpha=0.7)
 julia> legend()
 ```
 """
-function cv_fpw(X, r_range; numFolds = 10, seed=1, gamma = 1e-6, randrepeats = 7)
+function cv_fpw(X, r_range; numFolds = 10, seed = 1, gamma = 1e-6, randrepeats = 7)
 
 
   Random.seed!(seed)
 
+  # dimensions of data
 
-
-  N = size(X, 1)
-  D = size(X, 2)
+  N, D = size(X)
 
   # partition datasets into disjoint sets
+
   sets = collect(Kfold(N, numFolds))
 
   score = zeros(length(r_range), numFolds)

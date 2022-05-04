@@ -2,61 +2,63 @@
 function softparzen(X, S_centre, r, γ = 1e-6)
 ##############################################################
 
-  N = size(X, 1)
-  D = size(X, 2)
+  N, D = size(X)
   M = length(S_centre)
 
   # Usually kernel has also some normalisation constant
   # but in the following calculations it cancels out anyway
   K = zeros(M,N)
-  for mm=1:M
-    for nn=1:N
-      @inbounds K[mm,nn] = exp(-0.5*norm(X[S_centre[mm],:] - X[nn,:])^2 / (r*r))
+  for j in 1:M
+    for n in 1:N
+      @inbounds K[j,n] = exp(-0.5*norm(X[S_centre[j],:] - X[n,:])^2 / (r*r))
     end
   end
 
   # Soft version for coefficients
   Q = zeros(M)
   sumK = sum(K)
-  for mm=1:M
-    @inbounds Q[mm] = sum(K[mm,:]) / sumK
+  for j in 1:M
+    @inbounds Q[j] = sum(K[j,:]) / sumK
   end
 
 
-  # normalise
+  # responsibilities - note different to standard mixture models
+  # See equation (6)
   resp = zeros(M,N)
-  for mm=1:M
-    sum_Km_over_n = sum(K[mm,:])
-    for nn=1:N
-      @inbounds resp[mm,nn] = K[mm,nn] / sum_Km_over_n
+  for j in 1:M
+    sum_Kj_over_n = sum(K[j,:])
+    for n in 1:N
+      @inbounds resp[j,n] = K[j,n] / sum_Kj_over_n
     end
   end
+
 
   # Soft version for means
+  # See equation (7)
   mu = zeros(M, D)
-  for mm=1:M
-
-    for nn=1:N
-      for ii=1:D
-        @inbounds mu[mm,ii] += resp[mm,nn]*X[nn,ii]
+  for j=1:M
+    for n=1:N
+      for i=1:D
+        @inbounds mu[j,i] += resp[j,n] * X[n,i]
       end
     end
-
   end
 
-  # Soft version for covariances
-  C = [zeros(D, D) for mm=1:M]
-  for mm=1:M
 
-    for ii=1:D
-      for jj=1:D
-        for nn=1:N
-          @inbounds C[mm][ii,jj] += resp[mm,nn] * ((X[nn,ii] - mu[mm,ii]) * (X[nn,jj] - mu[mm,jj]))
+  # Soft version for covariances
+  C = [zeros(D, D) for j in 1:M]
+
+  for j in 1:M
+    for i in 1:D
+      for d in 1:D
+        for n in 1:N
+          @inbounds C[j][i,d] += resp[j,n] * ((X[n,i] - mu[j,i]) * (X[n,d] - mu[j,d]))
         end
       end
     end
 
-    C[mm] = (C[mm] + C[mm]')*0.5 + γ*I
+    C[j] = (C[j] + C[j]')*0.5 + γ*I
+
   end
 
   return Q, mu, C

@@ -1,6 +1,11 @@
 ###################################################
-function partition(X, r_threshold)
+function partition(X, r_threshold, seed = 1)
 ###################################################
+
+  # Here we follow the algorithm as described under section 2.2.1
+  # in the PhD thesis of Wang, Manifold aligned density estimation
+
+  rg = MersenneTwister(seed)
 
   N = size(X, 1)
   D = size(X, 2)
@@ -10,7 +15,7 @@ function partition(X, r_threshold)
   fill!(T_used, false)   # mark all data items initially as unused
 
   # select first data point
-  index           = ceil(Int, rand()*N)
+  index           = ceil(Int, rand(rg)*N)
   T_used[index]   = 1  # mark it used
   S_centre[index] = 1  # mark it as centre
 
@@ -18,7 +23,7 @@ function partition(X, r_threshold)
 
     # randomly choose an unused data item
     unused_indices = findall(T_used .== 0)
-    unused_index   = unused_indices[ceil(Int, rand()*length(unused_indices))]
+    unused_index   = unused_indices[ceil(Int, rand(rg)*length(unused_indices))]
 
     # mark it immediately as used
     T_used[unused_index] = 1
