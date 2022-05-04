@@ -31,7 +31,7 @@ using Statistics
 
 X = spiraldata(300)
 
-plot(X[1,:], X[2,:], "bo", label="dataset")
+plot(X[:,1], X[:,2], "bo", label="dataset")
 ```
 
 We want to find out which `r` works well for this dataset:
