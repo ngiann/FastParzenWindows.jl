@@ -2,6 +2,9 @@
 function partition(X, r_threshold, seed = 1)
 ###################################################
 
+  # Here we follow the algorithm as described under section 2.2.1
+  # in the PhD thesis of Wang, Manifold aligned density estimation
+
   rg = MersenneTwister(seed)
 
   N = size(X, 1)
