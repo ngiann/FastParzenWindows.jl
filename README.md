@@ -31,7 +31,7 @@ using Statistics
 
 X = spiraldata(300)
 
-plot(X[:,1], X[:,2], "bo", label="dataset")
+plot(X[1,:], X[2,:], "bo", label="dataset")
 ```
 
 We want to find out which `r` works well for this dataset:
@@ -54,8 +54,8 @@ Estimate final model:
 mix = fpw(X, r_best)
 
 # generate observations and plot them
-x = rand(mix, 1000)'
-plot(x[:,1], x[:,2], "r.", label="generated")
+x = rand(mix, 1000)
+plot(x[1,:], x[2,:], "r.", label="generated")
 legend()
 
 ```
