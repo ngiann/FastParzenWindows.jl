@@ -54,7 +54,7 @@ Estimate final model:
 mix = fpw(X, r_best)
 
 # generate observations and plot them
-x = rand(mix, 1000)
+x = rand(mix, 1000)'
 plot(x[:,1], x[:,2], "r.", label="generated")
 legend()
 
