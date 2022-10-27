@@ -12,7 +12,14 @@ This is a technique for estimating a probability density from an observed set of
 
 # How to use
 
-Install in package mode with `]add FastParzenWindows`.
+Apart from cloning, an easy way of using the package is the following:
+
+1 - Add the registry [AINJuliaRegistry](https://github.com/HITS-AIN/AINJuliaRegistry).
+
+2 - Switch into "package mode" with ```]``` and add the package with
+```
+add FastParzenWindows
+```
 
 There are two functions of interest: `fpw` and `cv_fpw`.
 
