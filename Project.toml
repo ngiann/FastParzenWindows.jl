@@ -1,7 +1,7 @@
 name = "FastParzenWindows"
 uuid = "d2256c36-f6cb-4f2b-bb45-9577641c7b75"
 authors = ["ngiann <ngiann@gmail.com> and contributors"]
-version = "0.1.4"
+version = "0.1.5"
 
 [deps]
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
