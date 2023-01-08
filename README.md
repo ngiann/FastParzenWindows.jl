@@ -14,14 +14,7 @@ The algorithm presented in the paper has two versions called 'hard' and 'soft'. 
 
 ## 💾 How to install
 
-Apart from cloning, an easy way of using the package is the following:
-
-1 - Add the registry [AINJuliaRegistry](https://github.com/HITS-AIN/AINJuliaRegistry).
-
-2 - Switch into "package mode" with ```]``` and add the package with
-```
-add FastParzenWindows
-```
+Apart from cloning, an easy way of using the package is to switch into "package mode" with ```]``` in the Julia REPL and use `add FastParzenWindows`.
 
 
 In case you are installing `FastParzenWindows` to an existing Julia environment, there is a chance one may run into dependency problems that prevent installation. In this case, it is advisable to work in a new [environment](https://pkgdocs.julialang.org/v1/environments/). That is
