@@ -17,7 +17,7 @@ The algorithm presented in the paper has two versions called 'hard' and 'soft'. 
 Apart from cloning, an easy way of using the package is to switch into "package mode" with ```]``` in the Julia REPL and use `add FastParzenWindows`.
 
 
-In case you are installing `FastParzenWindows` to an existing Julia environment, there is a chance one may run into dependency problems that prevent installation. In this case, it is advisable to work in a new [environment](https://pkgdocs.julialang.org/v1/environments/). That is
+In case you are installing `FastParzenWindows` to an existing Julia environment, there is a chance one may run into dependency problems that prevent installation. In this case, it is advisable to work in a new [environment](https://pkgdocs.julialang.org/v1/environments/). That is:
 ```
 mkdir("MyFastParzenWindows") # example name, can be different
 cd("MyFastParzenWindows")
