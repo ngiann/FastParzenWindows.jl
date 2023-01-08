@@ -2,7 +2,7 @@ module FastParzenWindows
 
     using ProgressMeter, StatsFuns, Random, Printf, SparseArrays, LinearAlgebra, Distributions, MLBase
 
-    include("fastparzenwindows.jl")
+    include("fpw.jl")
 
     include("softparzen.jl")
 
