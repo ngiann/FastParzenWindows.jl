@@ -1,9 +1,8 @@
 """
-    cvresults =  cv_fpw(X, r_range; numFolds = 10, seed=1)
+    cvresults = cv_fpw(X, r_range; numfolds = 10, seed = 1, gamma = 1e-6, randrepeats = 7)
 
 Performs cross validation for the radius parameter.
 Candidate values for the radius parameter are specified in `r_range`.
-Default number of folds is 10.
 Seed controls the generation of the folds.
 Returns the a matrix of dimensions (number of radii candidates)×(number of folds) of log-likelihoods evaluated on left out folds.
 
@@ -23,7 +22,7 @@ julia> plot(x[:,1], x[:,2], ".r", label="generated", alpha=0.7)
 julia> legend()
 ```
 """
-function cv_fpw(X, r_range; numFolds = 10, seed = 1, gamma = 1e-6, randrepeats = 7)
+function cv_fpw(X, r_range; numfolds = 10, seed = 1, gamma = 1e-6, randrepeats = 7)
 
 
   Random.seed!(seed)
@@ -34,15 +33,15 @@ function cv_fpw(X, r_range; numFolds = 10, seed = 1, gamma = 1e-6, randrepeats =
 
   # partition datasets into disjoint sets
 
-  sets = collect(Kfold(N, numFolds))
+  sets = collect(Kfold(N, numfolds))
 
-  score = zeros(length(r_range), numFolds)
+  score = zeros(length(r_range), numfolds)
 
   progressbar = Progress(length(r_range))
 
   for (r_index, r) in enumerate(r_range)
 
-    for i = 1:numFolds
+    for i = 1:numfolds
 
       # define indices for training set
       trainInd = sets[i]
@@ -52,16 +51,18 @@ function cv_fpw(X, r_range; numFolds = 10, seed = 1, gamma = 1e-6, randrepeats =
       testInd = setdiff(collect(1:N), trainInd)
       Xtest   = @view X[testInd,:]
 
-      for repeat=1:randrepeats
+      for repeat in 1:randrepeats
 
         # get Parzen window
-        mixturemodel = fpw(Xtrain, r)
+        mixturemodel = fpw(Xtrain, r; gamma = gamma, seed = seed + repeat)
 
         # get log-likelihood on test set
         logpdfmix(x) = logpdf(mixturemodel, x)
 
-        for nn=1:length(testInd)
-          @inbounds score[r_index, i] += logpdfmix(@view Xtest[nn,:]) / randrepeats
+        for n in 1:length(testInd)
+        
+          @inbounds score[r_index, i] += logpdfmix(@view Xtest[n,:]) / randrepeats
+        
         end
 
       end
