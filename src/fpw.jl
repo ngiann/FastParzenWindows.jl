@@ -1,5 +1,5 @@
 """
-    fpw(X, r)
+    fpw(X, r; gamma = 1e-6, seed = 1)
 
 ntrols the random number generator used for initialising the starting point of the optimisation.
 
@@ -13,11 +13,11 @@ julia> plot(x[:,1], x[:,2], ".r", label="generated", alpha=0.7)
 julia> legend()
 ```
 """
-fpw(X, r, gamma = 1e-6) = fastparzenwindows(X, r, gamma)
+fpw(X, r; gamma = 1e-6, seed = 1) = fastparzenwindows(X, r, gamma, seed)
 
-function fastparzenwindows(X, r, gamma=1e-6)
+function fastparzenwindows(X, r, gamma, seed)
 
-  centres_ind = partition(X, r)
+  centres_ind = partition(X, r, seed)
 
   Q, mu, C = softparzen(X, centres_ind, r, gamma)
 
