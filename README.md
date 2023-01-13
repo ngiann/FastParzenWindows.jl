@@ -27,13 +27,6 @@ cd("MyFastParzenWindows")
 and use this environment for installing and working with the package.
 Having exited Julia, one can enter the created environment again by simply starting Julia in the respective folder and using `activate .` in package mode.
 
-## ⬆ Updating the package
-
-Switch into "package mode" with ```]``` and add type ```registry update AINJuliaRegistry```. 
-
-This will make Julia update all packages associated with ```AINJuliaRegistry``` registry. 
-
-Alternatively, you enter package mode and type ```up```. This will update all packages in Julia, including this one.
 
 
 ## ▶ How to use
