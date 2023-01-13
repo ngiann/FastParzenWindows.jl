@@ -43,7 +43,7 @@ There are two functions of interest: `fpw` and `cv_fpw`.
 We use a dataset taken from the paper. We generate 300 data points using:
 ```
 using FastParzenWindows
-using PyPlot # must be independently installed, eeded only for plotting present example
+using PyPlot # must be independently installed, needed only for plotting present example
 using Statistics
 
 X = spiraldata(300)
