@@ -27,13 +27,6 @@ cd("MyFastParzenWindows")
 and use this environment for installing and working with the package.
 Having exited Julia, one can enter the created environment again by simply starting Julia in the respective folder and using `activate .` in package mode.
 
-## ⬆ Updating the package
-
-Switch into "package mode" with ```]``` and add type ```registry update AINJuliaRegistry```. 
-
-This will make Julia update all packages associated with ```AINJuliaRegistry``` registry. 
-
-Alternatively, you enter package mode and type ```up```. This will update all packages in Julia, including this one.
 
 
 ## ▶ How to use
@@ -50,7 +43,7 @@ There are two functions of interest: `fpw` and `cv_fpw`.
 We use a dataset taken from the paper. We generate 300 data points using:
 ```
 using FastParzenWindows
-using PyPlot # must be independently installed
+using PyPlot # must be independently installed, needed only for plotting present example
 using Statistics
 
 X = spiraldata(300)
