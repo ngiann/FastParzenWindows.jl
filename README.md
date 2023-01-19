@@ -31,10 +31,10 @@ Having exited Julia, one can enter the created environment again by simply start
 
 ## ▶ How to use
 
-There are two functions of interest: `fpw` and `cv_fpw`.
+There are two functions of interest: `fpw` and `cvfpw`.
 
 - `fpw` takes two arguments, a N×D data matrix `X` and a scalar `r` which expresses the radius of the hyper-discs in which the data space is partitioned. The output is an object of the type `Distributions.MixtureModel`.
-- `cv_fpw` takes two arguments, a N×D data matrix `X` and a range of candidate radii of the hyper-discs. It performs cross-validation for each candidate `r` and returns a matrix of out-of-sample log-likelihoods of dimensions (number of `r` candidates)×(number of folds).
+- `cvfpw` takes two arguments, a N×D data matrix `X` and a range of candidate radii of the hyper-discs. It performs cross-validation for each candidate `r` and returns a matrix of out-of-sample log-likelihoods of dimensions (number of `r` candidates)×(number of folds).
 
 
 
@@ -57,7 +57,7 @@ We want to find out which `r` works well for this dataset:
 r_range = LinRange(0.01, 2.0, 100)
 
 # perform cross-validation
-cvresults = cv_fpw(X, r_range)
+cvresults = cvfpw(X, r_range)
 
 # which is the best r?
 r_perf = mean(cvresults, dims=2)
