@@ -10,6 +10,7 @@ Returns a matrix of dimensions (number of radii candidates)×(number of folds) o
 
 * `X` is a N×D data matrix, i.e. there are N data items of dimension D.
 * `r_range` is an array or range of scalars specifying the candidate radii.
+* `numfolds` specifies the number of folds in the cross-validation.
 * `seed` controls the generation of the folds and is also the random seed of`fpw`
 * `gamma` is a scalar that specified a multiple of the identity matrix, i.e. γI, added to the covariance matrices of the local Gaussian for numerical stability.
 * `randrepeats` specifies how many times to repeat running the `fpw` algorithm in order to take into account the random initialisation of `fpw` each time it is run.
