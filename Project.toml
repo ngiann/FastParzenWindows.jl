@@ -1,6 +1,6 @@
 name = "FastParzenWindows"
 uuid = "d2256c36-f6cb-4f2b-bb45-9577641c7b75"
-authors = ["ngiann <ngiann@gmail.com> and contributors"]
+authors = ["Nikos Gianniotis <ngiann@gmail.com>"]
 version = "0.1.6"
 
 [deps]
