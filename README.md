@@ -5,14 +5,14 @@
 
 ## ℹ What is this?
 
-This is a Julia implementation of the Fast Parzen Window Density Estimator described in 
+This is a Julia implementation of the **Fast Parzen Window Density Estimator** described in 
 
 *X. Wang, P. Tino, M. A. Fardal, S. Raychaudhury and A. Babul, "Fast parzen window density estimator," 2009 International Joint Conference on Neural Networks, 2009, pp. 3267-3274.*
 
 This is a technique for estimating a probability density from an observed set of data points. The data space is partitioned in hyper-discs of fixed radii `r` and each partition is modelled with a Gaussian density.  The final model is a mixture of Gaussians with each Gaussian fitted locally to a partition.
 
 
-The algorithm presented in the paper has two versions called 'hard' and 'soft'.  This repository only provides the 'soft' version.
+The algorithm presented in the paper has two versions called 'hard' and 'soft'.  This repository provides an implementation of the 'soft' version.
 
 
 ## 💾 How to install
